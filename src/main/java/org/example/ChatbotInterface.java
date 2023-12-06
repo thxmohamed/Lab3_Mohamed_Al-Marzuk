@@ -9,4 +9,5 @@ public interface ChatbotInterface {
     public int chatbotGetFlowID();
     public String chatbotGetMsg();
     public String chatbotGetName();
+    
 }
