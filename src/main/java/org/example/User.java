@@ -1,6 +1,6 @@
 package org.example;
 
-public class User_22594262_AlMarzuk {
+public class User {
 
 
     protected String username;
@@ -15,7 +15,7 @@ public class User_22594262_AlMarzuk {
      *            Los usuarios son construidos por defecto como
      *            comunes.
      */
-    User_22594262_AlMarzuk(String user){
+    User(String user){
         this.username = user;
         this.isAdmin = false;
     }

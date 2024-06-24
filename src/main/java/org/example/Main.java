@@ -17,64 +17,64 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Option_22594262_AlMarzuk op1 = new Option_22594262_AlMarzuk(1, "1) Jugar", 1, 1, Arrays.asList("entretenerme", "jugar", "ocio"));
-        Option_22594262_AlMarzuk op2 = new Option_22594262_AlMarzuk(2, "2) Trabajar", 2, 1, Arrays.asList("trabajo", "chamba", "productividad"));
+        Option op1 = new Option(1, "1) Jugar", 1, 1, Arrays.asList("entretenerme", "jugar", "ocio"));
+        Option op2 = new Option(2, "2) Trabajar", 2, 1, Arrays.asList("trabajo", "chamba", "productividad"));
 
-        Flow_22594262_AlMarzuk f10 = new Flow_22594262_AlMarzuk(1, "Flujo Principal", Arrays.asList(op1, op2));
-
-
-        Chatbot_22594262_AlMarzuk cb0 = new Chatbot_22594262_AlMarzuk(0, "Chatbot Principal", "Bienvenido\n¿Qué planeas hacer?", 1, Arrays.asList(f10));
+        Flow f10 = new Flow(1, "Flujo Principal", Arrays.asList(op1, op2));
 
 
-        Option_22594262_AlMarzuk op3 = new Option_22594262_AlMarzuk(1, "1) Minecraft", 1, 2, Arrays.asList("minecraft", "mc", "cubos"));
-        Option_22594262_AlMarzuk op4 = new Option_22594262_AlMarzuk(2, "2) Fortnite", 1, 2, Arrays.asList("fortnite", "battle royale"));
-        Option_22594262_AlMarzuk op5 = new Option_22594262_AlMarzuk(3, "3) Stardew Valley", 1, 2, Arrays.asList("granja", "stardew", "stardew valley"));
-        Option_22594262_AlMarzuk op6 = new Option_22594262_AlMarzuk(4, "4) No quiero jugar", 0, 1, Arrays.asList("regresar", "volver", "atras", "nada"));
-
-        Flow_22594262_AlMarzuk f20 = new Flow_22594262_AlMarzuk(1, "\nFlujo1 Chatbot1\n¿Qué Quieres Jugar?", Arrays.asList(op3, op4, op5, op6));
-
-        Option_22594262_AlMarzuk op7 = new Option_22594262_AlMarzuk(1, "1) Solo", 1, 3, Arrays.asList("solitario", "singleplayer", "solo"));
-        Option_22594262_AlMarzuk op8 = new Option_22594262_AlMarzuk(2, "2) Duos", 1, 3, Arrays.asList("parejas", "duos"));
-        Option_22594262_AlMarzuk op9 = new Option_22594262_AlMarzuk(3, "3) Grupos", 1, 3, Arrays.asList("grupo", "squad", "varios"));
-        Option_22594262_AlMarzuk op10 = new Option_22594262_AlMarzuk(4, "4) Volver", 1, 1, Arrays.asList("atras", "volver", "otro"));
-
-        Flow_22594262_AlMarzuk f21 = new Flow_22594262_AlMarzuk(2, "\nFlujo 2 Chatbot 1\n¿Qué modalidad quieres jugar?", Arrays.asList(op7, op8, op9, op10));
-
-        Option_22594262_AlMarzuk op11 = new Option_22594262_AlMarzuk(1, "1) Epic Store", 1, 3, Arrays.asList("solo", "solitario", "con nadie"));
-        Option_22594262_AlMarzuk op12 = new Option_22594262_AlMarzuk(2, "2) Steam", 1, 3, Arrays.asList("pareja", "dos", "duo"));
-        Option_22594262_AlMarzuk op13 = new Option_22594262_AlMarzuk(3, "3) Origin", 1, 3, Arrays.asList("familia", "grupo", "hartos"));
-        Option_22594262_AlMarzuk op14 = new Option_22594262_AlMarzuk(4, "4) Microsoft Store", 1, 3, Arrays.asList("atractivos", "mas atractivos", "agregar atractivos"));
-        Option_22594262_AlMarzuk op15 = new Option_22594262_AlMarzuk(5, "5) Quiero jugar otra cosa", 1, 2, Arrays.asList("atras", "regresar", "volver"));
-
-        Flow_22594262_AlMarzuk f22 = new Flow_22594262_AlMarzuk(3, "\nFlujo 3 Chatbot1\n¿En qué plataforma quieres jugar?", Arrays.asList(op11, op12, op13, op14, op15));
-
-        Chatbot_22594262_AlMarzuk cb1 = new Chatbot_22594262_AlMarzuk(1, "Chatbot de Ocio", "Bienvenido\n¿Qué vas a jugar?", 1, Arrays.asList(f20, f21, f22));
+        Chatbot cb0 = new Chatbot(0, "Chatbot Principal", "Bienvenido\n¿Qué planeas hacer?", 1, Arrays.asList(f10));
 
 
+        Option op3 = new Option(1, "1) Minecraft", 1, 2, Arrays.asList("minecraft", "mc", "cubos"));
+        Option op4 = new Option(2, "2) Fortnite", 1, 2, Arrays.asList("fortnite", "battle royale"));
+        Option op5 = new Option(3, "3) Stardew Valley", 1, 2, Arrays.asList("granja", "stardew", "stardew valley"));
+        Option op6 = new Option(4, "4) No quiero jugar", 0, 1, Arrays.asList("regresar", "volver", "atras", "nada"));
 
-        Option_22594262_AlMarzuk op16 = new Option_22594262_AlMarzuk(1, "1) Taxista", 2, 3, Arrays.asList("taxi", "manejar", "auto", "taxista"));
-        Option_22594262_AlMarzuk op17 = new Option_22594262_AlMarzuk(2, "2) Veterinario", 2, 3, Arrays.asList("animales", "veterinario"));
-        Option_22594262_AlMarzuk op18 = new Option_22594262_AlMarzuk(3, "3) Periodista", 2, 3, Arrays.asList("periodista", "periodismo"));
-        Option_22594262_AlMarzuk op19 = new Option_22594262_AlMarzuk(4, "4) Más trabajos", 2, 2, Arrays.asList("mas", "mas trabajos"));
-        Option_22594262_AlMarzuk op20 = new Option_22594262_AlMarzuk(5, "5) No quiero trabajar", 0, 1, Arrays.asList("atras", "ninguno", "volver"));
+        Flow f20 = new Flow(1, "\nFlujo1 Chatbot1\n¿Qué Quieres Jugar?", Arrays.asList(op3, op4, op5, op6));
 
-        Option_22594262_AlMarzuk op21 = new Option_22594262_AlMarzuk(1, "1) Conserje", 2, 3, Arrays.asList("conserje", "limpiar"));
-        Option_22594262_AlMarzuk op22 = new Option_22594262_AlMarzuk(2, "2) Actor", 2, 3, Arrays.asList("actuacion", "actor", "actuar"));
-        Option_22594262_AlMarzuk op23 = new Option_22594262_AlMarzuk(3, "3) Cantante", 2, 3, Arrays.asList("cantar", "cantante"));
-        Option_22594262_AlMarzuk op24 = new Option_22594262_AlMarzuk(4, "4) Trabajos Anteriores", 2, 1, Arrays.asList("trabajos anteriores", "mas trabajos"));
+        Option op7 = new Option(1, "1) Solo", 1, 3, Arrays.asList("solitario", "singleplayer", "solo"));
+        Option op8 = new Option(2, "2) Duos", 1, 3, Arrays.asList("parejas", "duos"));
+        Option op9 = new Option(3, "3) Grupos", 1, 3, Arrays.asList("grupo", "squad", "varios"));
+        Option op10 = new Option(4, "4) Volver", 1, 1, Arrays.asList("atras", "volver", "otro"));
 
-        Option_22594262_AlMarzuk op25 = new Option_22594262_AlMarzuk(1, "1) Chile", 2, 3, Arrays.asList("chile", "aqui"));
-        Option_22594262_AlMarzuk op26 = new Option_22594262_AlMarzuk(2, "2) Perú", 2, 3, Arrays.asList("peru", "perú"));
-        Option_22594262_AlMarzuk op27 = new Option_22594262_AlMarzuk(3, "3) Panamá", 2, 3, Arrays.asList("panama", "panamá"));
-        Option_22594262_AlMarzuk op28 = new Option_22594262_AlMarzuk(4, "4) Volver", 2, 2, Arrays.asList("atras", "volver", "atrás"));
+        Flow f21 = new Flow(2, "\nFlujo 2 Chatbot 1\n¿Qué modalidad quieres jugar?", Arrays.asList(op7, op8, op9, op10));
 
-        Flow_22594262_AlMarzuk f30 = new Flow_22594262_AlMarzuk(1, "\nFlow 1 Chatbot 2\n¿Qué quieres trabajar?", Arrays.asList(op16, op17, op18, op19, op20));
-        Flow_22594262_AlMarzuk f31 = new Flow_22594262_AlMarzuk(2, "\nFlow 2, Chatbot 2\n¿Qué quieres trabajar?", Arrays.asList(op21, op22, op23, op24, op20));
-        Flow_22594262_AlMarzuk f32 = new Flow_22594262_AlMarzuk(3, "Flow 3 Chatbot 2\n¿Dónde te gustaría ejercer?", Arrays.asList(op25, op26, op27, op28));
+        Option op11 = new Option(1, "1) Epic Store", 1, 3, Arrays.asList("solo", "solitario", "con nadie"));
+        Option op12 = new Option(2, "2) Steam", 1, 3, Arrays.asList("pareja", "dos", "duo"));
+        Option op13 = new Option(3, "3) Origin", 1, 3, Arrays.asList("familia", "grupo", "hartos"));
+        Option op14 = new Option(4, "4) Microsoft Store", 1, 3, Arrays.asList("atractivos", "mas atractivos", "agregar atractivos"));
+        Option op15 = new Option(5, "5) Quiero jugar otra cosa", 1, 2, Arrays.asList("atras", "regresar", "volver"));
 
-        Chatbot_22594262_AlMarzuk cb2 = new Chatbot_22594262_AlMarzuk(2, "Orientador Académico", "Bienvenido\n¿Qué deseas estudiar?", 1, Arrays.asList(f30, f31, f32));
+        Flow f22 = new Flow(3, "\nFlujo 3 Chatbot1\n¿En qué plataforma quieres jugar?", Arrays.asList(op11, op12, op13, op14, op15));
 
-        Sistem_22594262_AlMarzuk s0 = new Sistem_22594262_AlMarzuk("Chatbots Paradik", 0, Arrays.asList(cb0, cb1, cb2));
+        Chatbot cb1 = new Chatbot(1, "Chatbot de Ocio", "Bienvenido\n¿Qué vas a jugar?", 1, Arrays.asList(f20, f21, f22));
+
+
+
+        Option op16 = new Option(1, "1) Taxista", 2, 3, Arrays.asList("taxi", "manejar", "auto", "taxista"));
+        Option op17 = new Option(2, "2) Veterinario", 2, 3, Arrays.asList("animales", "veterinario"));
+        Option op18 = new Option(3, "3) Periodista", 2, 3, Arrays.asList("periodista", "periodismo"));
+        Option op19 = new Option(4, "4) Más trabajos", 2, 2, Arrays.asList("mas", "mas trabajos"));
+        Option op20 = new Option(5, "5) No quiero trabajar", 0, 1, Arrays.asList("atras", "ninguno", "volver"));
+
+        Option op21 = new Option(1, "1) Conserje", 2, 3, Arrays.asList("conserje", "limpiar"));
+        Option op22 = new Option(2, "2) Actor", 2, 3, Arrays.asList("actuacion", "actor", "actuar"));
+        Option op23 = new Option(3, "3) Cantante", 2, 3, Arrays.asList("cantar", "cantante"));
+        Option op24 = new Option(4, "4) Trabajos Anteriores", 2, 1, Arrays.asList("trabajos anteriores", "mas trabajos"));
+
+        Option op25 = new Option(1, "1) Chile", 2, 3, Arrays.asList("chile", "aqui"));
+        Option op26 = new Option(2, "2) Perú", 2, 3, Arrays.asList("peru", "perú"));
+        Option op27 = new Option(3, "3) Panamá", 2, 3, Arrays.asList("panama", "panamá"));
+        Option op28 = new Option(4, "4) Volver", 2, 2, Arrays.asList("atras", "volver", "atrás"));
+
+        Flow f30 = new Flow(1, "\nFlow 1 Chatbot 2\n¿Qué quieres trabajar?", Arrays.asList(op16, op17, op18, op19, op20));
+        Flow f31 = new Flow(2, "\nFlow 2, Chatbot 2\n¿Qué quieres trabajar?", Arrays.asList(op21, op22, op23, op24, op20));
+        Flow f32 = new Flow(3, "Flow 3 Chatbot 2\n¿Dónde te gustaría ejercer?", Arrays.asList(op25, op26, op27, op28));
+
+        Chatbot cb2 = new Chatbot(2, "Orientador Académico", "Bienvenido\n¿Qué deseas estudiar?", 1, Arrays.asList(f30, f31, f32));
+
+        Sistem s0 = new Sistem("Chatbots Paradik", 0, Arrays.asList(cb0, cb1, cb2));
 
         Scanner input = new Scanner(System.in);
         System.out.println("\n\n\n\n\n");
@@ -102,14 +102,14 @@ public class Main {
                         case 1:
                             System.out.println("\n\nIngresa tu nombre de usuario");
                             String name = input.next();
-                            User_22594262_AlMarzuk user = new User_22594262_AlMarzuk(name);
+                            User user = new User(name);
                             user.setAdmin();
                             s0.systemAddUser(user);
                             break;
                         case 2:
                             System.out.println("\n\nIngresa tu nombre de usuario");
                             name = input.next();
-                            user = new User_22594262_AlMarzuk(name);
+                            user = new User(name);
                             s0.systemAddUser(user);
                             break;
                         default:
@@ -142,7 +142,7 @@ public class Main {
                                     System.out.println("Ingresa el id del flujo del chatbot");
                                     int flowID = input.nextInt();
 
-                                    Chatbot_22594262_AlMarzuk chatbot = new Chatbot_22594262_AlMarzuk(cbID, cbName, cbName, flowID, Arrays.asList());
+                                    Chatbot chatbot = new Chatbot(cbID, cbName, cbName, flowID, Arrays.asList());
                                     s0.systemAddChatbot(chatbot);
                                     System.out.println("El chatbot ha sido creado y añadido al sistema");
                                 }catch (InputMismatchException e) {
@@ -171,7 +171,7 @@ public class Main {
                                     case 2:
                                         System.out.println("Ingresa el id del chatbot a modificar");
                                         id = input.nextInt();
-                                        Chatbot_22594262_AlMarzuk chatbot = s0.systemFindChatbot(id);
+                                        Chatbot chatbot = s0.systemFindChatbot(id);
                                         List<Integer> chatbotElegidoIDs = new ArrayList<>();
                                         for(int j = 0; j < chatbot.chatbotGetFlows().size(); j++){
                                             chatbotElegidoIDs.add(chatbot.chatbotGetFlows().get(j).flowGetID());
@@ -189,7 +189,7 @@ public class Main {
                                                     int flowID = input.nextInt();
                                                     System.out.println("Ingresa el nombre del flujo (Sin espacios)");
                                                     String flowName = input.next();
-                                                    Flow_22594262_AlMarzuk flow = new Flow_22594262_AlMarzuk(flowID, flowName, Arrays.asList());
+                                                    Flow flow = new Flow(flowID, flowName, Arrays.asList());
                                                     chatbot.chatbotAddFlow(flow);
                                                     System.out.println("Se agregó el flow creado al chatbot");
                                                 }catch (InputMismatchException e){
@@ -202,7 +202,7 @@ public class Main {
                                             case 2:
                                                 System.out.println("Ingresa el ID del flujo a modificar");
                                                 int flowID = input.nextInt();
-                                                Flow_22594262_AlMarzuk flowMod = chatbot.chatbotFindFlow(flowID);
+                                                Flow flowMod = chatbot.chatbotFindFlow(flowID);
                                                 List<Integer> flowListIDs = new ArrayList<>();
                                                 for(int k = 0; k < flowMod.flowGetOptions().size(); k++){
                                                     flowListIDs.add(flowMod.flowGetOptions().get(k).optionGetID());
@@ -221,7 +221,7 @@ public class Main {
                                                             int opChatbotID = input.nextInt();
                                                             System.out.println("Ingresa el ID del flujo asociado a la opción");
                                                             int opFlowID = input.nextInt();
-                                                            Option_22594262_AlMarzuk option = new Option_22594262_AlMarzuk(optionID, optionName, opChatbotID, opFlowID, Arrays.asList());
+                                                            Option option = new Option(optionID, optionName, opChatbotID, opFlowID, Arrays.asList());
                                                             flowMod.flowAddOption(option);
                                                         }catch (InputMismatchException e){
                                                             System.out.println("Asegurate de ingresar correctamente los tipos de dato");
@@ -302,19 +302,19 @@ public class Main {
 
                                 System.out.println("\nChatbots del sistema: ");
                                 for(int i = 0; i < s0.systemGetChatbots().size(); i++){
-                                    Chatbot_22594262_AlMarzuk chatbot = s0.systemGetChatbots().get(i);
+                                    Chatbot chatbot = s0.systemGetChatbots().get(i);
                                     System.out.println("\nID del Chatbot " + i + ": " + chatbot.chatbotGetID());
                                     System.out.println("\nNombre Chatbot " + i + ": " + chatbot.chatbotGetName());
                                     System.out.println("\nMensaje Chatbot " + i + ": " + chatbot.chatbotGetMsg());
                                     System.out.println("\nFlow inicial Chatbot " + i + ": " + chatbot.chatbotGetFlowID());
                                     System.out.println("\nFlows del chatbot " + i + ": ");
                                     for(int j = 0; j < chatbot.chatbotGetFlows().size(); j++){
-                                        Flow_22594262_AlMarzuk flow = chatbot.chatbotGetFlows().get(j);
+                                        Flow flow = chatbot.chatbotGetFlows().get(j);
                                         System.out.println("\nID del Flow " + j + ": " + flow.flowGetID());
                                         System.out.println("\nNombre del Flow " + j + ": " + flow.flowGetName());
                                         System.out.println("\nOpciones del Flow " + j + ": ");
                                         for(int k = 0; k < flow.flowGetOptions().size(); k++){
-                                            Option_22594262_AlMarzuk option = flow.flowGetOptions().get(k);
+                                            Option option = flow.flowGetOptions().get(k);
                                             System.out.println("\nID opcion " + k + ": " + option.optionGetID());
                                             System.out.println("\nNombre opcion " + k + ": " + option.optionGetMsg());
                                             System.out.println("\nPalabras clave opcion " + k + ": " + option.optionGetKeywords());

@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Message_22594262_AlMarzuk{
+public class Message{
     private Date fecha = new Date();
     private String username;
     private String msg;
@@ -16,7 +16,7 @@ public class Message_22594262_AlMarzuk{
      *
      * Descripción: Constructor de un mensaje de un usuario utilizando los parametros de entrada.
      */
-    public Message_22594262_AlMarzuk(Date fecha, String user, String msg){
+    public Message(Date fecha, String user, String msg){
             this.fecha = fecha;
             this.username = user;
             this.msg = msg;

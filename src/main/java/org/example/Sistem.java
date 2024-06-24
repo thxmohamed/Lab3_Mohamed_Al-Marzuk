@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Date;
 
-public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarzuk{
+public class Sistem implements SistemInterface{
     private String name;
     private int chatbotIDLink;
     private List<Integer> formateo = Arrays.asList(0, 1); //para formatear el sistema una vez que el usuario haya cerrado sesión
     public boolean estaIniciado = false;
-    private List<User_22594262_AlMarzuk> registrados = new ArrayList<>();
-    private List<User_22594262_AlMarzuk> loggedUser = new ArrayList<>();
-    private List<ChatHistory_22594262_AlMarzuk> chatHistories = new ArrayList<>();
-    private List<Chatbot_22594262_AlMarzuk> chatbots;
+    private List<User> registrados = new ArrayList<>();
+    private List<User> loggedUser = new ArrayList<>();
+    private List<ChatHistory> chatHistories = new ArrayList<>();
+    private List<Chatbot> chatbots;
 
     /**
      *
@@ -23,7 +23,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
      * Descripción: RF7 - Sistem (Constructor)
      *                Construye un sistema con los parámetros de entrada.
      */
-    public Sistem_22594262_AlMarzuk(String name, int ID, List<Chatbot_22594262_AlMarzuk> chatbots){
+    public Sistem(String name, int ID, List<Chatbot> chatbots){
         this.name = name;
         this.chatbotIDLink = ID;
 
@@ -31,7 +31,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
             this.chatbots = chatbots;
         }else{
             int auxID, i;
-            List<Chatbot_22594262_AlMarzuk> chatbotsSinDuplicados = new ArrayList<>();
+            List<Chatbot> chatbotsSinDuplicados = new ArrayList<>();
             List<Integer> IDList = new ArrayList<>();
             chatbotsSinDuplicados.add(chatbots.get(0));
             IDList.add(chatbots.get(0).chatbotGetID());
@@ -49,16 +49,16 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
     public int systemGetCbID(){
         return this.chatbotIDLink;
     }
-    public List<User_22594262_AlMarzuk> systemGetRegistered(){
+    public List<User> systemGetRegistered(){
         return this.registrados;
     }
 
-    public List<User_22594262_AlMarzuk> systemGetLoggedUser() {
+    public List<User> systemGetLoggedUser() {
         return this.loggedUser;
     }
-    public List<ChatHistory_22594262_AlMarzuk> systemGetChatHistory(){ return this.chatHistories;}
+    public List<ChatHistory> systemGetChatHistory(){ return this.chatHistories;}
 
-    public List<Chatbot_22594262_AlMarzuk> systemGetChatbots() {
+    public List<Chatbot> systemGetChatbots() {
         return this.chatbots;
     }
 
@@ -74,7 +74,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
      *          Método que añade chatbots a un sistema
      *          si es que no se repiten en base a sus ids
      */
-    public void systemAddChatbot(Chatbot_22594262_AlMarzuk cb){
+    public void systemAddChatbot(Chatbot cb){
         int chatbotID = cb.chatbotGetID();
         int i, auxID;
         for (i = 0; i < this.chatbots.size(); i++){
@@ -94,10 +94,10 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
      * Descripción: RF9 - Sistem (Modificador) - systemAddUser
      *            Añade un usuario a un sistema, si es que este no se encuentra registrado con anterioridad
      */
-    public void systemAddUser(User_22594262_AlMarzuk user){
+    public void systemAddUser(User user){
         String username = user.getUsername();
-        List<User_22594262_AlMarzuk> registrados = this.registrados;
-        for (User_22594262_AlMarzuk registrado : registrados) {
+        List<User> registrados = this.registrados;
+        for (User registrado : registrados) {
             String auxUser = registrado.getUsername();
             if (username.equals(auxUser)) {
                 System.out.println("\n¡Ese nombre de usuario ya se encuentra registrado!\n");
@@ -105,7 +105,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
             }
         }
         this.registrados.add(user);
-        ChatHistory_22594262_AlMarzuk history = new ChatHistory_22594262_AlMarzuk(user);
+        ChatHistory history = new ChatHistory(user);
         this.chatHistories.add(history);
         System.out.println("\n¡Usuario registrado exitosamente!\n");
     }
@@ -124,7 +124,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
         }
         for(int i = 0; i < this.systemGetRegistered().size(); i++){
             if(name.equals(this.systemGetRegistered().get(i).getUsername())){
-                User_22594262_AlMarzuk user = this.systemGetRegistered().get(i);
+                User user = this.systemGetRegistered().get(i);
                 this.systemGetLoggedUser().add(user);
                 return;
             }
@@ -143,7 +143,7 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
         this.updateChatbotFlowID(this.chatbotIDLink, this.formateo.get(1));
     }
 
-    public Chatbot_22594262_AlMarzuk systemFindChatbot(int chatbotID){
+    public Chatbot systemFindChatbot(int chatbotID){
         int i, auxID;
         for(i = 0; i < this.systemGetChatbots().size();i++){
             auxID = this.systemGetChatbots().get(i).chatbotGetID();
@@ -154,8 +154,8 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
         System.out.println("No existe ese ID de chatbot en el sistema");
         return null;
     }
-    public void addMsg(Message_22594262_AlMarzuk msg){
-        User_22594262_AlMarzuk user = this.systemGetLoggedUser().get(0);
+    public void addMsg(Message msg){
+        User user = this.systemGetLoggedUser().get(0);
         for(int i = 0; i < this.systemGetChatHistory().size(); i++){
             if(user.equals(this.systemGetChatHistory().get(i).getUser())){
                 this.systemGetChatHistory().get(i).chatAddMsg(msg);
@@ -203,17 +203,17 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
         }else if(!this.estaIniciado){
             String user = this.systemGetLoggedUser().get(0).getUsername();
             int chatbotID = systemGetCbID();
-            Chatbot_22594262_AlMarzuk chatbot = systemFindChatbot(chatbotID); //chatbot actual
+            Chatbot chatbot = systemFindChatbot(chatbotID); //chatbot actual
             int i, flowID = chatbot.chatbotGetFlowID();
-            Flow_22594262_AlMarzuk flow = chatbot.chatbotFindFlow(flowID); //flow actual
+            Flow flow = chatbot.chatbotFindFlow(flowID); //flow actual
             String respuesta = chatbot.chatbotGetMsg() + "\n";
             for(i = 0; i < flow.flowGetOptions().size(); i++){
                 respuesta = respuesta + flow.flowGetOptions().get(i).optionGetMsg() + "\n";
             }
             String chatbotName = chatbot.chatbotGetName();
             Date fecha = new Date();
-            Message_22594262_AlMarzuk messageU = new Message_22594262_AlMarzuk(fecha, user, msg);
-            Message_22594262_AlMarzuk messageR = new Message_22594262_AlMarzuk(fecha, chatbotName, respuesta);
+            Message messageU = new Message(fecha, user, msg);
+            Message messageR = new Message(fecha, chatbotName, respuesta);
             this.addMsg(messageU);
             this.addMsg(messageR);
             System.out.println(respuesta);
@@ -222,16 +222,16 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
             try{
                 int opID = Integer.parseInt(msg); // id de la opcion entregada
                 int chatbotID = systemGetCbID(); // id del chatbot actualmente linkeado en el sistema
-                Chatbot_22594262_AlMarzuk chatbot = this.systemFindChatbot(chatbotID); //chatbot actual
+                Chatbot chatbot = this.systemFindChatbot(chatbotID); //chatbot actual
                 int i, flowID = chatbot.chatbotGetFlowID();
-                Flow_22594262_AlMarzuk flow = chatbot.chatbotFindFlow(flowID); //flow actual
+                Flow flow = chatbot.chatbotFindFlow(flowID); //flow actual
                 List<Integer> newLinks = flow.optionIdLinks(opID);
                 if(newLinks.equals(Arrays.asList())){
                     System.out.println("No se pudo interactuar con el Chatbot.\nIngresa un mensaje válido");
                     return;
                 }
-                Chatbot_22594262_AlMarzuk newChatbot = this.systemFindChatbot(newLinks.get(0));
-                Flow_22594262_AlMarzuk newFlow  = newChatbot.chatbotFindFlow(newLinks.get(1));
+                Chatbot newChatbot = this.systemFindChatbot(newLinks.get(0));
+                Flow newFlow  = newChatbot.chatbotFindFlow(newLinks.get(1));
                 this.setChatbotIDLink(newLinks.get(0));
                 this.updateChatbotFlowID(newLinks.get(0), newLinks.get(1));
 
@@ -242,8 +242,8 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
                 Date fecha = new Date();
                 String user = this.systemGetLoggedUser().get(0).getUsername();
                 String chatbotName = chatbot.chatbotGetName();
-                Message_22594262_AlMarzuk messageU = new Message_22594262_AlMarzuk(fecha, user, msg);
-                Message_22594262_AlMarzuk messageR = new Message_22594262_AlMarzuk(fecha, chatbotName, respuesta);
+                Message messageU = new Message(fecha, user, msg);
+                Message messageR = new Message(fecha, chatbotName, respuesta);
                 this.addMsg(messageU);
                 this.addMsg(messageR);
                 System.out.println(respuesta);
@@ -251,16 +251,16 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
             } catch (NumberFormatException e){
                 int chatbotID = systemGetCbID(); // id del chatbot actualmente linkeado en el sistema
                 //System.out.println("No se puede conversar con el chatbots sin usar numeros");
-                Chatbot_22594262_AlMarzuk chatbot = this.systemFindChatbot(chatbotID); //chatbot actual
+                Chatbot chatbot = this.systemFindChatbot(chatbotID); //chatbot actual
                 int i, flowID = chatbot.chatbotGetFlowID();
-                Flow_22594262_AlMarzuk flow = chatbot.chatbotFindFlow(flowID); //flow actual
+                Flow flow = chatbot.chatbotFindFlow(flowID); //flow actual
                 List<Integer> newLinks = flow.optionIdLinks(msg);
                 if(newLinks.equals(Arrays.asList())){
                     System.out.println("No se pudo interactuar con el Chatbot.\nIngresa un mensaje válido");
                     return;
                 }
-                Chatbot_22594262_AlMarzuk newChatbot = this.systemFindChatbot(newLinks.get(0));
-                Flow_22594262_AlMarzuk newFlow  = newChatbot.chatbotFindFlow(newLinks.get(1));
+                Chatbot newChatbot = this.systemFindChatbot(newLinks.get(0));
+                Flow newFlow  = newChatbot.chatbotFindFlow(newLinks.get(1));
                 this.setChatbotIDLink(newLinks.get(0));
                 this.updateChatbotFlowID(newLinks.get(0), newLinks.get(1));
 
@@ -271,8 +271,8 @@ public class Sistem_22594262_AlMarzuk implements SistemInterface_22594262_AlMarz
                 Date fecha = new Date();
                 String user = this.systemGetLoggedUser().get(0).getUsername();
                 String chatbotName = chatbot.chatbotGetName();
-                Message_22594262_AlMarzuk messageU = new Message_22594262_AlMarzuk(fecha, user, msg);
-                Message_22594262_AlMarzuk messageR = new Message_22594262_AlMarzuk(fecha, chatbotName, respuesta);
+                Message messageU = new Message(fecha, user, msg);
+                Message messageR = new Message(fecha, chatbotName, respuesta);
                 this.addMsg(messageU);
                 this.addMsg(messageR);
                 System.out.println(respuesta);

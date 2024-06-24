@@ -1,7 +1,7 @@
 package org.example;
 import java.util.List;
 
-public class Option_22594262_AlMarzuk implements OptionInterface_22594262_AlMarzuk{
+public class Option implements OptionInterface{
     private int optionID;
     private String optionMsg;
     private int chatbotID;
@@ -20,7 +20,7 @@ public class Option_22594262_AlMarzuk implements OptionInterface_22594262_AlMarz
      * Descripción: RF1 - Option (Constructor)
      *                Crea una opción con los parametros de entrada
      */
-    public Option_22594262_AlMarzuk(int optionID, String optionMsg, int chatbotID, int flowID, List<String> keywords) {
+    public Option(int optionID, String optionMsg, int chatbotID, int flowID, List<String> keywords) {
         this.optionID = optionID;
         this.optionMsg = optionMsg;
         this.chatbotID = chatbotID;

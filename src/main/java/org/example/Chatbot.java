@@ -2,12 +2,12 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMarzuk{
+public class Chatbot implements ChatbotInterface{
     private int chatbotID;
     private String chatbotName;
     private String welcomeMsg;
     private int startFlowID;
-    private List<Flow_22594262_AlMarzuk> flows;
+    private List<Flow> flows;
 
 
     /**
@@ -24,7 +24,7 @@ public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMa
      *             Además, borra los flujos repetidos en caso de que lo estén,
      *             en base a su ID.
      */
-    public Chatbot_22594262_AlMarzuk(int ID, String Name, String welcomeMsg, int startFlowID, List<Flow_22594262_AlMarzuk> flows){
+    public Chatbot(int ID, String Name, String welcomeMsg, int startFlowID, List<Flow> flows){
         this.chatbotID = ID;
         this.chatbotName = Name;
         this.welcomeMsg = welcomeMsg;
@@ -33,7 +33,7 @@ public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMa
             this.flows = flows;
         }else{
             int auxID;
-            List<Flow_22594262_AlMarzuk> flowsSinDuplicados = new ArrayList<>();
+            List<Flow> flowsSinDuplicados = new ArrayList<>();
             List<Integer> IDList = new ArrayList<>();
             flowsSinDuplicados.add(flows.get(0));
             IDList.add(flows.get(0).flowGetID());
@@ -57,7 +57,7 @@ public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMa
      *            Añade un flujo a un chatbot, siempre y cuando
      *            este no se repita en base a su ID.
      */
-    public void chatbotAddFlow(Flow_22594262_AlMarzuk flow){
+    public void chatbotAddFlow(Flow flow){
         int flowID = flow.flowGetID();
         int i, auxID;
         for(i = 0; i < this.flows.size(); i++){
@@ -81,7 +81,7 @@ public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMa
     public int chatbotGetFlowID(){
         return this.startFlowID;
     }
-    public List<Flow_22594262_AlMarzuk> chatbotGetFlows(){
+    public List<Flow> chatbotGetFlows(){
         return this.flows;
     }
 
@@ -122,7 +122,7 @@ public class Chatbot_22594262_AlMarzuk implements ChatbotInterface_22594262_AlMa
      *
      * Descripción: Busca un flujo en base a su ID.
      */
-    public Flow_22594262_AlMarzuk chatbotFindFlow(int FlowID){
+    public Flow chatbotFindFlow(int FlowID){
         int auxID, i;
         for(i = 0; i < this.chatbotGetFlows().size(); i++){
             auxID = this.chatbotGetFlows().get(i).flowGetID();

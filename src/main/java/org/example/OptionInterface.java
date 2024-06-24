@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.List;
 
-public interface OptionInterface_22594262_AlMarzuk {
+public interface OptionInterface {
     public int optionGetID();
     public String optionGetMsg();
     public int optionGetChatbotID();

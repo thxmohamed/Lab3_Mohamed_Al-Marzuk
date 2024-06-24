@@ -7,10 +7,10 @@ import java.util.List;
 *
 *
 * */
-public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
+public class Flow implements FlowInterface{
     private int flowID;
     private String flowName;
-    private List<Option_22594262_AlMarzuk> options;
+    private List<Option> options;
 
     /**
      *
@@ -22,14 +22,14 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
      *               Construye un flujo con los parametros de entrada.
      *               Elimina las opciones repetidas.
      */
-    public Flow_22594262_AlMarzuk(int flowID, String flowName, List<Option_22594262_AlMarzuk> options){
+    public Flow(int flowID, String flowName, List<Option> options){
         this.flowID = flowID;
         this.flowName = flowName;
         if(options.isEmpty() || options.size() == 1){
             this.options = options;
         }else{
             int auxID, i;
-            List<Option_22594262_AlMarzuk> optionsSinDuplicados = new ArrayList<>();
+            List<Option> optionsSinDuplicados = new ArrayList<>();
             List<Integer> IDList = new ArrayList<>();
             optionsSinDuplicados.add(options.get(0));
             IDList.add(options.get(0).optionGetID());
@@ -50,7 +50,7 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
      * Descripción: RF3 - Flow (Modificador) - flowAddOption
      *          Añade una opción a un flujo si es que esta no está duplicada en base a su id.
      */
-    public void flowAddOption(Option_22594262_AlMarzuk op){
+    public void flowAddOption(Option op){
         int opID = op.optionGetID();
         int i, auxopID;
         for(i = 0; i < this.options.size() ; i++){
@@ -68,7 +68,7 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
     public String flowGetName(){
         return this.flowName;
     }
-    public List<Option_22594262_AlMarzuk> flowGetOptions(){
+    public List<Option> flowGetOptions(){
         return this.options;
     }
 
@@ -98,7 +98,7 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
      * Descripción: Busca el ID de la opción y extrae el ID del chatbot y del flujo.
      */
     public List<Integer> optionIdLinks(int optionID){
-        List<Option_22594262_AlMarzuk> options = this.options;
+        List<Option> options = this.options;
         for(int i = 0; i < options.size(); i++){
             if(options.get(i).optionGetID() == optionID){
                 int chatbotID = options.get(i).optionGetChatbotID();
@@ -118,7 +118,7 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
      * Descripción: Busca la keyword en la opción y extrae el ID del chatbot y del flujo.
      */
     public List<Integer> optionIdLinks(String keyword){
-        List<Option_22594262_AlMarzuk> options = this.options;
+        List<Option> options = this.options;
         for(int i = 0; i < options.size(); i++){
             List<String> keywords = options.get(i).optionGetKeywords();
             if(keywords.contains(keyword)){
@@ -138,7 +138,7 @@ public class Flow_22594262_AlMarzuk implements FlowInterface_22594262_AlMarzuk{
      *
      * Descripción: busca una opción en base a su ID.
      */
-    public Option_22594262_AlMarzuk findOption(int optionID){
+    public Option findOption(int optionID){
         int i, auxID;
         for (i = 0; i < this.flowGetOptions().size(); i++){
             auxID = this.flowGetOptions().get(i).optionGetID();
